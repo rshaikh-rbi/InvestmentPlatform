@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2024-11-01T10:00:00.000Z" agent="Mozilla/5.0" version="22.0.0" type="device">
+  <diagram name="SD03-Data Ingestion" id="sd03-data-ingestion">
+    <mxGraphModel dx="1600" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1800" pageHeight="1400" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        
+        <!-- Title -->
+        <mxCell id="title" value="SD-03: Data Ingestion Pipeline" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="500" y="20" width="400" height="30" as="geometry"/>
+        </mxCell>
+        
+        <!-- Scheduler -->
+        <mxCell id="sched-head" value="Scheduler&#xa;(Cron)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="80" y="80" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="sched-line" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 4;strokeWidth=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="120" y="140" as="sourcePoint"/>
+            <mxPoint x="120" y="1100" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Ingestion Service -->
+        <mxCell id="ing-head" value="Ingestion&#xa;Service" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="250" y="80" width="100" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="ing-line" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 4;strokeWidth=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="300" y="140" as="sourcePoint"/>
+            <mxPoint x="300" y="1100" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Data Source APIs -->
+        <mxCell id="api-head" value="Data Source&#xa;APIs" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="450" y="80" width="100" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="api-line" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 4;strokeWidth=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="500" y="140" as="sourcePoint"/>
+            <mxPoint x="500" y="1100" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Database -->
+        <mxCell id="db-head" value="Database" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="630" y="70" width="80" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="db-line" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 4;strokeWidth=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="670" y="140" as="sourcePoint"/>
+            <mxPoint x="670" y="1100" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- AI Engine Queue -->
+        <mxCell id="ai-head" value="AI Engine&#xa;Queue" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="800" y="80" width="100" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="ai-line" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 4;strokeWidth=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="850" y="140" as="sourcePoint"/>
+            <mxPoint x="850" y="1100" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Messages -->
+        <!-- 1. Trigger Job -->
+        <mxCell id="msg1" value="1. Trigger Job (Every 15 min)" style="endArrow=classic;html=1;strokeWidth=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="120" y="170" as="sourcePoint"/>
+            <mxPoint x="300" y="170" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Loop Box for Multiple Sources -->
+        <mxCell id="loop-box" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#0066CC;dashed=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="250" y="190" width="300" height="200" as="geometry"/>
+        </mxCell>
+        <mxCell id="loop-label" value="LOOP [For Each Data Source]" style="text;html=1;strokeColor=none;fillColor=#dae8fc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="250" y="190" width="170" height="20" as="geometry"/>
+        </mxCell>
+        
+        <!-- 2. GET NSE -->
+        <mxCell id="msg2" value="2. GET /recommendations (NSE)" style="endArrow=classic;html=1;strokeWidth=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="300" y="230" as="sourcePoint"/>
+            <mxPoint x="500" y="230" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 3. Raw Data NSE -->
+        <mxCell id="msg3" value="3. Raw Data (JSON)" style="endArrow=classic;html=1;strokeWidth=1;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="500" y="260" as="sourcePoint"/>
+            <mxPoint x="300" y="260" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 4. GET MoneyControl -->
+        <mxCell id="msg4" value="4. GET /recommendations (MoneyControl)" style="endArrow=classic;html=1;strokeWidth=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="300" y="290" as="sourcePoint"/>
+            <mxPoint x="500" y="290" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 5. Raw Data MC -->
+        <mxCell id="msg5" value="5. Raw Data (JSON)" style="endArrow=classic;html=1;strokeWidth=1;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="500" y="320" as="sourcePoint"/>
+            <mxPoint x="300" y="320" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 6. GET Screener -->
+        <mxCell id="msg6" value="6. GET /recommendations (Screener.in)" style="endArrow=classic;html=1;strokeWidth=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="300" y="350" as="sourcePoint"/>
+            <mxPoint x="500" y="350" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 7. Raw Data Screener -->
+        <mxCell id="msg7" value="7. Raw Data (JSON)" style="endArrow=classic;html=1;strokeWidth=1;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="500" y="380" as="sourcePoint"/>
+            <mxPoint x="300" y="380" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 8. Store Raw Logs -->
+        <mxCell id="msg8" value="8. Store Raw Ingestion Logs (90 days retention)" style="endArrow=classic;html=1;strokeWidth=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="300" y="420" as="sourcePoint"/>
+            <mxPoint x="670" y="420" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 9. Normalize Schema (self) -->
+        <mxCell id="msg9" value="9. Normalize to Unified Stock Schema" style="endArrow=classic;html=1;strokeWidth=1;curved=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="300" y="460" as="sourcePoint"/>
+            <mxPoint x="300" y="500" as="targetPoint"/>
+            <Array as="points">
+              <mxPoint x="360" y="480"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Schema Note -->
+        <mxCell id="schema-note" value="Unified Schema:&#xa;- symbol&#xa;- source&#xa;- date&#xa;- target_price&#xa;- horizon&#xa;- sector&#xa;- market_cap" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#333333;align=left;spacingLeft=5;fontSize=9" vertex="1" parent="1">
+          <mxGeometry x="370" y="450" width="100" height="110" as="geometry"/>
+        </mxCell>
+        
+        <!-- 10. Check Duplicates -->
+        <mxCell id="msg10" value="10. Check Duplicates (24hr window)" style="endArrow=classic;html=1;strokeWidth=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="300" y="580" as="sourcePoint"/>
+            <mxPoint x="670" y="580" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 11. Existing Records -->
+        <mxCell id="msg11" value="11. Existing Records (if any)" style="endArrow=classic;html=1;strokeWidth=1;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="670" y="610" as="sourcePoint"/>
+            <mxPoint x="300" y="610" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 12. De-duplicate (self) -->
+        <mxCell id="msg12" value="12. De-duplicate &amp; Merge Sources" style="endArrow=classic;html=1;strokeWidth=1;curved=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="300" y="640" as="sourcePoint"/>
+            <mxPoint x="300" y="680" as="targetPoint"/>
+            <Array as="points">
+              <mxPoint x="360" y="660"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 13. Tag Sector -->
+        <mxCell id="msg13" value="13. Tag Sector + Market Cap Category" style="endArrow=classic;html=1;strokeWidth=1;curved=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="300" y="700" as="sourcePoint"/>
+            <mxPoint x="300" y="740" as="targetPoint"/>
+            <Array as="points">
+              <mxPoint x="360" y="720"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 14. Store Normalized -->
+        <mxCell id="msg14" value="14. Store Normalized Recommendation" style="endArrow=classic;html=1;strokeWidth=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="300" y="770" as="sourcePoint"/>
+            <mxPoint x="670" y="770" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 15. Queue for AI -->
+        <mxCell id="msg15" value="15. Queue for AI Scoring" style="endArrow=classic;html=1;strokeWidth=1;strokeColor=#9673a6;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="300" y="810" as="sourcePoint"/>
+            <mxPoint x="850" y="810" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 16. Ack Queued -->
+        <mxCell id="msg16" value="16. Ack: Queued" style="endArrow=classic;html=1;strokeWidth=1;dashed=1;strokeColor=#9673a6;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="850" y="840" as="sourcePoint"/>
+            <mxPoint x="300" y="840" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Alt Box for Failure -->
+        <mxCell id="alt-box" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#CC0000;dashed=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="250" y="880" width="550" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="alt-label" value="ALT [Source API Failure]" style="text;html=1;strokeColor=none;fillColor=#f8cecc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="250" y="880" width="140" height="20" as="geometry"/>
+        </mxCell>
+        
+        <!-- Failure flow -->
+        <mxCell id="msg-f1" value="F1. GET /recommendations" style="endArrow=classic;html=1;strokeWidth=1;strokeColor=#CC0000;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="300" y="920" as="sourcePoint"/>
+            <mxPoint x="500" y="920" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="msg-f2" value="F2. Timeout / Error" style="endArrow=classic;html=1;strokeWidth=1;dashed=1;strokeColor=#CC0000;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="500" y="950" as="sourcePoint"/>
+            <mxPoint x="300" y="950" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="msg-f3" value="F3. Log Failure + Flag Source as Stale" style="endArrow=classic;html=1;strokeWidth=1;strokeColor=#CC0000;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="300" y="980" as="sourcePoint"/>
+            <mxPoint x="670" y="980" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="msg-f4" value="F4. Check Failure Rate (&gt;20% in 1hr?)" style="endArrow=classic;html=1;strokeWidth=1;curved=1;strokeColor=#CC0000;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="300" y="1010" as="sourcePoint"/>
+            <mxPoint x="300" y="1040" as="targetPoint"/>
+            <Array as="points">
+              <mxPoint x="360" y="1025"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="msg-f5" value="F5. Notify Admin (if threshold exceeded)" style="endArrow=classic;html=1;strokeWidth=1;strokeColor=#CC0000;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="300" y="1050" as="sourcePoint"/>
+            <mxPoint x="850" y="1050" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Notes -->
+        <mxCell id="note1" value="FR3.1: Min 3 sources&#xa;FR3.2: Unified schema&#xa;FR3.3: Stale data flagging&#xa;FR3.4: 90-day log retention&#xa;FR4.2: De-duplication" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;align=left;spacingLeft=5;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="950" y="170" width="150" height="90" as="geometry"/>
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

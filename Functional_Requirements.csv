@@ -1,0 +1,38 @@
+Category,ID,Requirement,Acceptance Criteria,Priority
+User Management,FR1.1,User registration with email/phone verification,Account created only after OTP verification,Must Have
+User Management,FR1.2,KYC-light capture (PAN/mobile for Indian users),System stores identifier for audit trail - not for trading,Must Have
+User Management,FR1.3,Role-based access: Guest - Free User - Subscriber - Admin,Each role sees only permitted features,Must Have
+User Management,FR1.4,Session management with forced logout on plan expiry,Downgrade to Free User view within 5 minutes of expiry,Should Have
+Subscription & Billing,FR2.1,Support minimum 3 plan tiers (Free - Basic - Premium),Plans differ by alert frequency - stock coverage - historical depth,Must Have
+Subscription & Billing,FR2.2,Integrate one payment gateway (Razorpay/Stripe),Payment confirmation triggers plan activation within 60 seconds,Must Have
+Subscription & Billing,FR2.3,Auto-renewal with 3-day advance reminder,User can cancel before renewal without charge,Should Have
+Subscription & Billing,FR2.4,Grace period of 48 hours post-expiry before downgrade,User retains access during grace window,Should Have
+Data Ingestion,FR3.1,Connect to minimum 3 data sources at launch (e.g. NSE API - MoneyControl - screener.in),Data refresh at configured intervals per source,Must Have
+Data Ingestion,FR3.2,Normalize incoming data into unified stock schema,All sources map to single internal stock model,Must Have
+Data Ingestion,FR3.3,Flag stale data if source fails refresh beyond threshold,Admin notified; stale data excluded from AI scoring,Should Have
+Data Ingestion,FR3.4,Store raw ingestion logs for 90 days,Enables audit and replay if reprocessing needed,Should Have
+Recommendation Aggregation,FR4.1,Capture recommendations with source - date - target price - horizon,No recommendation stored without these fields,Must Have
+Recommendation Aggregation,FR4.2,De-duplicate same stock recommendation from multiple sources within 24-hour window,Single consolidated entry with source count,Must Have
+Recommendation Aggregation,FR4.3,Tag each recommendation with sector - market cap category,Enables filtering in user-facing views,Should Have
+AI Validation Engine,FR5.1,Score each recommendation on fundamental metrics (PE - debt/equity - promoter holding - earnings trend),Score generated within 30 seconds of ingestion,Must Have
+AI Validation Engine,FR5.2,Score on technical signals (RSI - moving average crossover - volume spike),Configurable weightage per signal,Must Have
+AI Validation Engine,FR5.3,Composite confidence score (0-100) combining both,Threshold configurable by Admin (default: 60 to pass),Must Have
+AI Validation Engine,FR5.4,Auto-reject recommendations below threshold with logged reason,Rejected items visible in Admin audit view,Must Have
+AI Validation Engine,FR5.5,Support manual override by Admin with audit trail,Override reason mandatory,Should Have
+Alert Delivery,FR6.1,Push notification to mobile app for verified alerts,Delivery within 2 minutes of AI approval,Must Have
+Alert Delivery,FR6.2,Email digest option (instant - daily - weekly) per user preference,User configures in settings,Should Have
+Alert Delivery,FR6.3,In-app alert center with read/unread status,Alerts persist for 90 days,Must Have
+Alert Delivery,FR6.4,Rate-limit alerts to avoid fatigue (max 5/day for Basic - 15/day for Premium),Excess alerts queued for next window,Should Have
+Performance Tracking,FR7.1,Track stock price at alert time and at defined horizons (7d - 30d - 90d),Price snapshot automated via scheduled job,Must Have
+Performance Tracking,FR7.2,Calculate return % and tag as Hit/Miss against target,Hit = achieved target within horizon,Must Have
+Performance Tracking,FR7.3,Display success rate per source - sector - time period,User and Admin dashboards,Should Have
+Performance Tracking,FR7.4,Allow user to mark 'I acted on this' for personal tracking,Optional; no liability implication,Could Have
+Historical View (Free Users),FR8.1,Free users can view recommendations older than 7 days,Real-time and recent alerts gated,Must Have
+Historical View (Free Users),FR8.2,Performance stats visible but without actionable alerts,Builds trust - drives conversion,Must Have
+Admin Console,FR9.1,Add/edit/disable data sources without code deployment,Config-driven source management,Must Have
+Admin Console,FR9.2,Adjust AI scoring weights and thresholds,Changes logged with timestamp and admin ID,Must Have
+Admin Console,FR9.3,View ingestion health dashboard (success/failure rates),Alerts if failure rate exceeds 20% in 1 hour,Should Have
+Admin Console,FR9.4,User management: view subscribers - manually extend/revoke access,Action logged,Must Have
+Compliance & Disclaimers,FR10.1,Display SEBI disclaimer on every alert: 'Not investment advice',Disclaimer non-dismissable in UI,Must Have
+Compliance & Disclaimers,FR10.2,Terms acceptance mandatory at registration,Checkbox with timestamp stored,Must Have
+Compliance & Disclaimers,FR10.3,No direct buy/sell execution; information-only platform,System has no broker integration,Must Have

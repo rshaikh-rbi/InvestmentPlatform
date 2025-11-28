@@ -1,0 +1,13 @@
+Category,ID,Requirement,Target,Rationale,Priority
+Availability,NFR1,System uptime during market hours (9:00-15:30 IST),99% monthly,Alerts are time-sensitive during trading hours,Must Have
+Latency,NFR2,Alert delivery post-AI approval,< 2 minutes,Stale alerts reduce user trust and value,Must Have
+Scalability,NFR3,Support concurrent users at launch,1000 users; architecture allows 10x without re-platform,Startup growth trajectory planning,Must Have
+Data Retention,NFR4,Alerts and performance data retention,2 years,Enables historical analysis and compliance audit,Should Have
+Security,NFR5,Encrypt PII at rest and in transit,AES-256 / TLS 1.2+,User data protection and regulatory compliance,Must Have
+Cost Efficiency,NFR6,Prefer managed services with pay-as-you-go,Avoid reserved capacity until PMF,Startup cash flow management,Must Have
+Disaster Recovery,NFR7,Daily backups with defined RTO,4-hour RTO; cloud-native backup to separate region,Business continuity,Should Have
+Observability,NFR8,Centralized logging and basic APM,Free tier tools (Grafana Cloud - Sentry) acceptable,Issue diagnosis without high cost,Should Have
+Performance,NFR9,AI scoring completion time,< 30 seconds per recommendation,Real-time validation requirement,Must Have
+Mobile,NFR10,Mobile app responsiveness,< 3 seconds initial load; < 1 second navigation,User experience on mobile-first audience,Should Have
+API Rate Limits,NFR11,External API call management,Respect source rate limits; implement backoff,Avoid service disruption from blocked APIs,Must Have
+Maintainability,NFR12,Modular architecture for data sources,Add new source within 2 dev days,Agility to onboard new data providers,Should Have
