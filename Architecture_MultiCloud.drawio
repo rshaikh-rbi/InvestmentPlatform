@@ -1,0 +1,235 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.0.9 Chrome/128.0.6613.186 Electron/32.2.5 Safari/537.36" version="26.0.9">
+  <diagram name="Multi-Cloud Architecture" id="simple-multicloud">
+    <mxGraphModel dx="1379" dy="568" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="AI Investment Platform - Multi-Cloud Architecture" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1;fontColor=#333333;" parent="1" vertex="1">
+          <mxGeometry x="400" y="15" width="500" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="mobile" value="📱&#xa;Flutter App" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="280" y="60" width="80" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="admin" value="🖥️&#xa;Admin Web" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="380" y="60" width="80" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="datasources" value="📊&#xa;Data Sources&#xa;(NSE, MC, Screener)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" parent="1" vertex="1">
+          <mxGeometry x="820" y="60" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="azure-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E6F2FF;strokeColor=#0078D4;strokeWidth=2;" parent="1" vertex="1">
+          <mxGeometry x="40" y="140" width="700" height="500" as="geometry" />
+        </mxCell>
+        <mxCell id="azure-label" value="☁️ MICROSOFT AZURE" style="text;html=1;strokeColor=none;fillColor=#0078D4;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=14;fontStyle=1;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="50" y="150" width="180" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="frontdoor" value="Azure Front Door&#xa;(CDN + WAF)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0078D4;strokeColor=#005a9e;fontColor=#ffffff;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="280" y="150" width="180" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="aks-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#0078D4;strokeWidth=1;dashed=1;" parent="1" vertex="1">
+          <mxGeometry x="60" y="210" width="660" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="aks-label" value="Azure Kubernetes Service (AKS)" style="text;html=1;strokeColor=none;fillColor=#0078D4;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=11;fontStyle=1;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="70" y="220" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-user" value="User&#xa;Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" parent="1" vertex="1">
+          <mxGeometry x="80" y="260" width="75" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-sub" value="Subscription&#xa;Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" parent="1" vertex="1">
+          <mxGeometry x="170" y="260" width="75" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-ingest" value="Ingestion&#xa;Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" parent="1" vertex="1">
+          <mxGeometry x="260" y="260" width="75" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-alert" value="Alert&#xa;Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" parent="1" vertex="1">
+          <mxGeometry x="350" y="260" width="75" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-notif" value="Notification&#xa;Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" parent="1" vertex="1">
+          <mxGeometry x="440" y="260" width="75" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-perf" value="Performance&#xa;Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" parent="1" vertex="1">
+          <mxGeometry x="80" y="320" width="75" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-admin" value="Admin&#xa;Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" parent="1" vertex="1">
+          <mxGeometry x="170" y="320" width="75" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-gateway" value="API Gateway&#xa;(Kong)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="530" y="260" width="90" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="python-label" value="All services: Python (FastAPI)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontColor=#666666;fontStyle=2;" parent="1" vertex="1">
+          <mxGeometry x="280" y="330" width="150" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="postgres" value="🗄️&#xa;PostgreSQL&#xa;(Flexible)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" parent="1" vertex="1">
+          <mxGeometry x="80" y="440" width="90" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="redis" value="⚡&#xa;Redis&#xa;Cache" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" parent="1" vertex="1">
+          <mxGeometry x="190" y="440" width="80" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="servicebus" value="📨&#xa;Service Bus&#xa;(Events)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;" parent="1" vertex="1">
+          <mxGeometry x="290" y="440" width="85" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="blob" value="📁&#xa;Blob&#xa;Storage" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" parent="1" vertex="1">
+          <mxGeometry x="395" y="440" width="75" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="keyvault" value="🔐&#xa;Key Vault" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=10;" parent="1" vertex="1">
+          <mxGeometry x="490" y="440" width="70" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="azure-region" value="Region: Central India" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontColor=#0078D4;fontStyle=2;" parent="1" vertex="1">
+          <mxGeometry x="580" y="615" width="120" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="gcp-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#34A853;strokeWidth=2;" parent="1" vertex="1">
+          <mxGeometry x="780" y="130" width="280" height="510" as="geometry" />
+        </mxCell>
+        <mxCell id="gcp-label" value="☁️ GOOGLE CLOUD" style="text;html=1;strokeColor=none;fillColor=#34A853;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=14;fontStyle=1;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="790" y="150" width="150" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="cloudrun-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#34A853;strokeWidth=1;dashed=1;" parent="1" vertex="1">
+          <mxGeometry x="800" y="200" width="240" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="cloudrun-label" value="Cloud Run (Serverless)" style="text;html=1;strokeColor=none;fillColor=#34A853;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=10;fontStyle=1;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="810" y="208" width="130" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="ai-scoring" value="🤖&#xa;AI Scoring&#xa;Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#34A853;fontSize=11;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="860" y="240" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="vertex-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#34A853;strokeWidth=1;dashed=1;" parent="1" vertex="1">
+          <mxGeometry x="800" y="320" width="240" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="vertex-label" value="Vertex AI" style="text;html=1;strokeColor=none;fillColor=#34A853;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=10;fontStyle=1;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="810" y="328" width="70" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="embeddings" value="🧠&#xa;Embeddings&#xa;text-embedding-005" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#34A853;fontSize=9;" parent="1" vertex="1">
+          <mxGeometry x="820" y="360" width="95" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="vectorsearch" value="🔍&#xa;Vector Search&#xa;(Similarity)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#34A853;fontSize=9;" parent="1" vertex="1">
+          <mxGeometry x="930" y="360" width="90" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="gemini" value="💬&#xa;Gemini Pro&#xa;(Future)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#34A853;fontSize=9;strokeDashArray=3 3;" parent="1" vertex="1">
+          <mxGeometry x="870" y="425" width="80" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="gcp-region" value="Region: Mumbai" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontColor=#34A853;fontStyle=2;" parent="1" vertex="1">
+          <mxGeometry x="920" y="615" width="100" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="conn1" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#666666;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="370" y="110" as="sourcePoint" />
+            <mxPoint x="370" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn2" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#0078D4;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="370" y="185" as="sourcePoint" />
+            <mxPoint x="370" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn3" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#d6b656;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="820" y="85" as="sourcePoint" />
+            <mxPoint x="335" y="260" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="760" y="85" />
+              <mxPoint x="760" y="200" />
+              <mxPoint x="550" y="220" />
+              <mxPoint x="350" y="220" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn4" value="" style="endArrow=classic;startArrow=classic;html=1;strokeWidth=1;strokeColor=#666666;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="300" y="380" as="sourcePoint" />
+            <mxPoint x="300" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn5" value="Events" style="endArrow=classic;startArrow=classic;html=1;strokeWidth=2;strokeColor=#9673a6;dashed=1;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="375" y="467" as="sourcePoint" />
+            <mxPoint x="860" y="265" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="390" y="530" />
+              <mxPoint x="600" y="530" />
+              <mxPoint x="770" y="520" />
+              <mxPoint x="770" y="265" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn6" value="" style="endArrow=classic;startArrow=classic;html=1;strokeWidth=1;strokeColor=#34A853;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="910" y="290" as="sourcePoint" />
+            <mxPoint x="910" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="40" y="660" width="500" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-title" value="LEGEND" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="50" y="665" width="60" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="leg1" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="50" y="690" width="20" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="leg1-text" value="Microservice" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" parent="1" vertex="1">
+          <mxGeometry x="75" y="690" width="70" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="leg2" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="150" y="690" width="20" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="leg2-text" value="Database" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" parent="1" vertex="1">
+          <mxGeometry x="175" y="690" width="55" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="leg3" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="240" y="690" width="20" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="leg3-text" value="Messaging" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" parent="1" vertex="1">
+          <mxGeometry x="265" y="690" width="60" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="leg4" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#34A853;" parent="1" vertex="1">
+          <mxGeometry x="330" y="690" width="20" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="leg4-text" value="AI/ML Service" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" parent="1" vertex="1">
+          <mxGeometry x="355" y="690" width="70" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="leg5" value="" style="endArrow=classic;startArrow=classic;html=1;strokeWidth=2;strokeColor=#9673a6;dashed=1;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="430" y="697" as="sourcePoint" />
+            <mxPoint x="470" y="697" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="leg5-text" value="Cross-Cloud" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" parent="1" vertex="1">
+          <mxGeometry x="475" y="690" width="60" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="cost-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="560" y="660" width="200" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="cost-title" value="💰 EST. MONTHLY COST" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="580" y="665" width="160" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="cost-azure" value="Azure: $700 - $900" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#0078D4;" parent="1" vertex="1">
+          <mxGeometry x="590" y="685" width="120" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="cost-gcp" value="GCP: $120 - $170" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#34A853;" parent="1" vertex="1">
+          <mxGeometry x="590" y="705" width="120" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="cost-total" value="Total: ~$900 - $1,100/mo" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="590" y="725" width="150" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="benefits-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="780" y="660" width="280" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="benefits-title" value="✅ KEY BENEFITS" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="800" y="665" width="120" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="benefit1" value="• Best-in-class AI (Vertex AI embeddings)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" parent="1" vertex="1">
+          <mxGeometry x="790" y="685" width="220" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="benefit2" value="• Scale-to-zero AI scoring (cost savings)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" parent="1" vertex="1">
+          <mxGeometry x="790" y="700" width="220" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="benefit3" value="• Enterprise-grade infra (Azure AKS)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" parent="1" vertex="1">
+          <mxGeometry x="790" y="715" width="220" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="benefit4" value="• India data residency (both clouds)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" parent="1" vertex="1">
+          <mxGeometry x="790" y="730" width="220" height="12" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

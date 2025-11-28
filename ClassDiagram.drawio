@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2024-11-01T10:00:00.000Z" agent="Mozilla/5.0" version="22.0.0" type="device">
+  <diagram name="Class Diagram" id="class-diagram">
+    <mxGraphModel dx="1600" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        
+        <!-- Title -->
+        <mxCell id="title" value="Class Diagram - AI Investment Alert Platform" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="500" y="10" width="450" height="30" as="geometry"/>
+        </mxCell>
+        
+        <!-- ==================== USER SERVICE ==================== -->
+        <mxCell id="user-class" value="&lt;&lt;Entity&gt;&gt;&#xa;User" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="40" y="60" width="180" height="190" as="geometry"/>
+        </mxCell>
+        <mxCell id="user-attrs" value="+ id: UUID&#xa;+ email: String&#xa;+ phone: String&#xa;+ pan: String (encrypted)&#xa;+ name: String&#xa;+ role: UserRole&#xa;+ status: UserStatus&#xa;+ terms_accepted_at: DateTime&#xa;+ created_at: DateTime&#xa;+ updated_at: DateTime" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="user-class">
+          <mxGeometry y="40" width="180" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="user-line" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="user-class">
+          <mxGeometry y="160" width="180" height="8" as="geometry"/>
+        </mxCell>
+        <mxCell id="user-methods" value="+ verify_otp()&#xa;+ update_role()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="user-class">
+          <mxGeometry y="168" width="180" height="22" as="geometry"/>
+        </mxCell>
+        
+        <!-- UserRole Enum -->
+        <mxCell id="userrole-enum" value="&lt;&lt;Enum&gt;&gt;&#xa;UserRole" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="40" y="270" width="100" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="userrole-values" value="GUEST&#xa;FREE&#xa;BASIC&#xa;PREMIUM&#xa;ADMIN" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="userrole-enum">
+          <mxGeometry y="30" width="100" height="60" as="geometry"/>
+        </mxCell>
+        
+        <!-- ==================== SUBSCRIPTION SERVICE ==================== -->
+        <mxCell id="plan-class" value="&lt;&lt;Entity&gt;&gt;&#xa;Plan" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="260" y="60" width="160" height="150" as="geometry"/>
+        </mxCell>
+        <mxCell id="plan-attrs" value="+ id: UUID&#xa;+ name: String&#xa;+ price: Decimal&#xa;+ duration_days: Int&#xa;+ alerts_per_day: Int&#xa;+ features: JSON&#xa;+ is_active: Boolean" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="plan-class">
+          <mxGeometry y="40" width="160" height="110" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="subscription-class" value="&lt;&lt;Entity&gt;&gt;&#xa;Subscription" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="260" y="230" width="160" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="sub-attrs" value="+ id: UUID&#xa;+ user_id: UUID (FK)&#xa;+ plan_id: UUID (FK)&#xa;+ status: SubStatus&#xa;+ start_date: DateTime&#xa;+ end_date: DateTime&#xa;+ auto_renew: Boolean&#xa;+ grace_until: DateTime" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="subscription-class">
+          <mxGeometry y="40" width="160" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="sub-line" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="subscription-class">
+          <mxGeometry y="140" width="160" height="8" as="geometry"/>
+        </mxCell>
+        <mxCell id="sub-methods" value="+ is_active(): Boolean&#xa;+ in_grace_period(): Boolean" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="subscription-class">
+          <mxGeometry y="148" width="160" height="32" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="payment-class" value="&lt;&lt;Entity&gt;&gt;&#xa;Payment" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="260" y="430" width="160" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="payment-attrs" value="+ id: UUID&#xa;+ subscription_id: UUID (FK)&#xa;+ amount: Decimal&#xa;+ gateway_order_id: String&#xa;+ gateway_payment_id: String&#xa;+ status: PaymentStatus&#xa;+ paid_at: DateTime" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="payment-class">
+          <mxGeometry y="40" width="160" height="100" as="geometry"/>
+        </mxCell>
+        
+        <!-- ==================== INGESTION SERVICE ==================== -->
+        <mxCell id="datasource-class" value="&lt;&lt;Entity&gt;&gt;&#xa;DataSource" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="460" y="60" width="170" height="170" as="geometry"/>
+        </mxCell>
+        <mxCell id="ds-attrs" value="+ id: UUID&#xa;+ name: String&#xa;+ url: String&#xa;+ auth_config: JSON&#xa;+ poll_interval_min: Int&#xa;+ is_active: Boolean&#xa;+ last_success_at: DateTime&#xa;+ failure_count: Int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="datasource-class">
+          <mxGeometry y="40" width="170" height="130" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="recommendation-class" value="&lt;&lt;Entity&gt;&gt;&#xa;Recommendation" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="460" y="250" width="170" height="220" as="geometry"/>
+        </mxCell>
+        <mxCell id="rec-attrs" value="+ id: UUID&#xa;+ source_id: UUID (FK)&#xa;+ symbol: String&#xa;+ company_name: String&#xa;+ sector: String&#xa;+ market_cap: MarketCap&#xa;+ target_price: Decimal&#xa;+ current_price: Decimal&#xa;+ horizon_days: Int&#xa;+ source_date: DateTime&#xa;+ raw_data: JSON&#xa;+ ingested_at: DateTime" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="recommendation-class">
+          <mxGeometry y="40" width="170" height="180" as="geometry"/>
+        </mxCell>
+        
+        <!-- ==================== AI SCORING SERVICE ==================== -->
+        <mxCell id="score-class" value="&lt;&lt;Entity&gt;&gt;&#xa;ScoringResult" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="670" y="60" width="180" height="220" as="geometry"/>
+        </mxCell>
+        <mxCell id="score-attrs" value="+ id: UUID&#xa;+ recommendation_id: UUID (FK)&#xa;+ fundamental_score: Int (0-50)&#xa;+ technical_score: Int (0-50)&#xa;+ composite_score: Int (0-100)&#xa;+ pe_score: Int&#xa;+ debt_score: Int&#xa;+ rsi_score: Int&#xa;+ ma_score: Int&#xa;+ status: ScoreStatus&#xa;+ rejection_reason: String&#xa;+ embedding_vector: Float[]&#xa;+ scored_at: DateTime" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="score-class">
+          <mxGeometry y="40" width="180" height="180" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="scorestatus-enum" value="&lt;&lt;Enum&gt;&gt;&#xa;ScoreStatus" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="670" y="300" width="100" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="scorestatus-values" value="PENDING&#xa;APPROVED&#xa;REJECTED&#xa;OVERRIDE" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="scorestatus-enum">
+          <mxGeometry y="30" width="100" height="50" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="scoreconfig-class" value="&lt;&lt;Entity&gt;&gt;&#xa;ScoringConfig" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="790" y="300" width="160" height="150" as="geometry"/>
+        </mxCell>
+        <mxCell id="scoreconfig-attrs" value="+ id: UUID&#xa;+ pe_weight: Int&#xa;+ debt_weight: Int&#xa;+ rsi_weight: Int&#xa;+ ma_weight: Int&#xa;+ approval_threshold: Int&#xa;+ updated_by: UUID&#xa;+ updated_at: DateTime" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="scoreconfig-class">
+          <mxGeometry y="40" width="160" height="110" as="geometry"/>
+        </mxCell>
+        
+        <!-- ==================== ALERT SERVICE ==================== -->
+        <mxCell id="alert-class" value="&lt;&lt;Entity&gt;&gt;&#xa;Alert" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="890" y="60" width="180" height="200" as="geometry"/>
+        </mxCell>
+        <mxCell id="alert-attrs" value="+ id: UUID&#xa;+ scoring_result_id: UUID (FK)&#xa;+ symbol: String&#xa;+ target_price: Decimal&#xa;+ confidence_score: Int&#xa;+ sector: String&#xa;+ disclaimer: String&#xa;+ price_at_alert: Decimal&#xa;+ created_at: DateTime" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="alert-class">
+          <mxGeometry y="40" width="180" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="alert-line" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="alert-class">
+          <mxGeometry y="160" width="180" height="8" as="geometry"/>
+        </mxCell>
+        <mxCell id="alert-methods" value="+ get_eligible_users()&#xa;+ apply_disclaimer()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="alert-class">
+          <mxGeometry y="168" width="180" height="32" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="useralert-class" value="&lt;&lt;Entity&gt;&gt;&#xa;UserAlert" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="60" width="160" height="160" as="geometry"/>
+        </mxCell>
+        <mxCell id="useralert-attrs" value="+ id: UUID&#xa;+ user_id: UUID (FK)&#xa;+ alert_id: UUID (FK)&#xa;+ delivery_status: DeliveryStatus&#xa;+ channel: Channel&#xa;+ is_read: Boolean&#xa;+ delivered_at: DateTime&#xa;+ read_at: DateTime" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="useralert-class">
+          <mxGeometry y="40" width="160" height="120" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="alertpref-class" value="&lt;&lt;Entity&gt;&gt;&#xa;AlertPreference" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="240" width="160" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="alertpref-attrs" value="+ id: UUID&#xa;+ user_id: UUID (FK)&#xa;+ push_enabled: Boolean&#xa;+ email_enabled: Boolean&#xa;+ email_frequency: Frequency&#xa;+ sectors_filter: String[]&#xa;+ min_confidence: Int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="alertpref-class">
+          <mxGeometry y="40" width="160" height="100" as="geometry"/>
+        </mxCell>
+        
+        <!-- ==================== PERFORMANCE SERVICE ==================== -->
+        <mxCell id="performance-class" value="&lt;&lt;Entity&gt;&gt;&#xa;PerformanceRecord" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="890" y="280" width="180" height="200" as="geometry"/>
+        </mxCell>
+        <mxCell id="perf-attrs" value="+ id: UUID&#xa;+ alert_id: UUID (FK)&#xa;+ price_at_alert: Decimal&#xa;+ price_7d: Decimal&#xa;+ price_30d: Decimal&#xa;+ price_90d: Decimal&#xa;+ return_pct: Decimal&#xa;+ status: HitMissStatus&#xa;+ target_achieved_at: DateTime&#xa;+ last_updated: DateTime" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="performance-class">
+          <mxGeometry y="40" width="180" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="perf-line" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="perf-class">
+          <mxGeometry y="170" width="180" height="8" as="geometry"/>
+        </mxCell>
+        <mxCell id="perf-methods" value="+ calculate_return()&#xa;+ check_target_hit()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="performance-class">
+          <mxGeometry y="170" width="180" height="30" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="hitmiss-enum" value="&lt;&lt;Enum&gt;&gt;&#xa;HitMissStatus" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="890" y="500" width="100" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="hitmiss-values" value="PENDING&#xa;HIT&#xa;MISS" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="hitmiss-enum">
+          <mxGeometry y="30" width="100" height="40" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="useraction-class" value="&lt;&lt;Entity&gt;&gt;&#xa;UserAction" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="1010" y="500" width="150" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="useraction-attrs" value="+ id: UUID&#xa;+ user_id: UUID (FK)&#xa;+ alert_id: UUID (FK)&#xa;+ acted_on: Boolean&#xa;+ notes: String&#xa;+ created_at: DateTime" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="useraction-class">
+          <mxGeometry y="40" width="150" height="80" as="geometry"/>
+        </mxCell>
+        
+        <!-- ==================== ADMIN SERVICE ==================== -->
+        <mxCell id="auditlog-class" value="&lt;&lt;Entity&gt;&gt;&#xa;AuditLog" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="40" y="400" width="180" height="150" as="geometry"/>
+        </mxCell>
+        <mxCell id="audit-attrs" value="+ id: UUID&#xa;+ admin_id: UUID (FK)&#xa;+ action: String&#xa;+ entity_type: String&#xa;+ entity_id: UUID&#xa;+ old_value: JSON&#xa;+ new_value: JSON&#xa;+ timestamp: DateTime" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="auditlog-class">
+          <mxGeometry y="40" width="180" height="110" as="geometry"/>
+        </mxCell>
+        
+        <!-- ==================== RELATIONSHIPS ==================== -->
+        
+        <!-- User -> Subscription (1:N) -->
+        <mxCell id="rel1" value="1" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=1;edgeStyle=orthogonalEdgeStyle;strokeColor=#666666;" edge="1" parent="1" source="user-class" target="subscription-class">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel1-label" value="has" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="225" y="180" width="30" height="15" as="geometry"/>
+        </mxCell>
+        
+        <!-- Subscription -> Plan (N:1) -->
+        <mxCell id="rel2" value="" style="endArrow=open;html=1;endSize=12;startArrow=none;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;strokeColor=#666666;" edge="1" parent="1" source="subscription-class" target="plan-class">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- Subscription -> Payment (1:N) -->
+        <mxCell id="rel3" value="1" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=1;edgeStyle=orthogonalEdgeStyle;strokeColor=#666666;" edge="1" parent="1" source="subscription-class" target="payment-class">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- DataSource -> Recommendation (1:N) -->
+        <mxCell id="rel4" value="1" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=1;edgeStyle=orthogonalEdgeStyle;strokeColor=#666666;" edge="1" parent="1" source="datasource-class" target="recommendation-class">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- Recommendation -> ScoringResult (1:1) -->
+        <mxCell id="rel5" value="1:1" style="endArrow=open;html=1;endSize=12;startArrow=none;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;strokeColor=#666666;" edge="1" parent="1" source="recommendation-class" target="score-class">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- ScoringResult -> Alert (1:1) -->
+        <mxCell id="rel6" value="1:1" style="endArrow=open;html=1;endSize=12;startArrow=none;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;strokeColor=#666666;" edge="1" parent="1" source="score-class" target="alert-class">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- Alert -> UserAlert (1:N) -->
+        <mxCell id="rel7" value="1" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=1;edgeStyle=orthogonalEdgeStyle;strokeColor=#666666;" edge="1" parent="1" source="alert-class" target="useralert-class">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- User -> AlertPreference (1:1) -->
+        <mxCell id="rel8" value="" style="endArrow=open;html=1;endSize=12;startArrow=none;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;strokeColor=#666666;dashed=1;" edge="1" parent="1" source="user-class" target="alertpref-class">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="130" y="400"/>
+              <mxPoint x="1300" y="400"/>
+              <mxPoint x="1300" y="310"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Alert -> PerformanceRecord (1:1) -->
+        <mxCell id="rel9" value="1:1" style="endArrow=open;html=1;endSize=12;startArrow=none;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;strokeColor=#666666;" edge="1" parent="1" source="alert-class" target="performance-class">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- ==================== LEGEND ==================== -->
+        <mxCell id="legend-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="40" y="580" width="600" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend-title" value="LEGEND (Service Ownership)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="585" width="180" height="15" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="leg1" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="50" y="610" width="15" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg1-text" value="User Service" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="70" y="610" width="70" height="15" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="leg2" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="145" y="610" width="15" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg2-text" value="Subscription Svc" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="165" y="610" width="85" height="15" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="leg3" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="255" y="610" width="15" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg3-text" value="Ingestion Svc" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="275" y="610" width="70" height="15" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="leg4" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="350" y="610" width="15" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg4-text" value="AI Scoring Svc" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="370" y="610" width="75" height="15" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="leg5" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="450" y="610" width="15" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg5-text" value="Alert Svc" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="470" y="610" width="50" height="15" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="leg6" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="525" y="610" width="15" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg6-text" value="Performance Svc" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="545" y="610" width="85" height="15" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="leg7" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="50" y="635" width="15" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg7-text" value="Admin Svc / Enum" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="70" y="635" width="90" height="15" as="geometry"/>
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
